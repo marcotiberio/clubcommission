@@ -1,0 +1,20 @@
+<div class="flyntComponent componentSpacing" is="flynt-block-question">
+  <div class="container fullWidthContainer">
+    {% if preContentHtml %}
+      <div class="preContent centerMaxWidthContainer">
+        <h1>{{ preContentHtml|e }}</h1>
+      </div>
+    {% endif %}
+    <ul class="items">
+      {% for item in items %}
+        {% if item.reply %}
+        <a href="{{ item.replyPageLink }}" rel="noopener noreferrer" class="item-link-reply">
+          <li class="item">
+            {{ item.reply|e }}  
+          </li>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

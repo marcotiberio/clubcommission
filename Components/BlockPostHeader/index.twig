@@ -1,0 +1,22 @@
+<div class="flyntComponent" is="flynt-block-post-header">
+  <div class="container fullWidthContainer">
+    <div class="content">
+      {# <h1>{{ post.title }}</h1> #}
+      {% for component in post.meta('eventPrivacyComponents') %}
+        {{ renderComponent(component) }}
+      {% endfor %}
+      {% for component in post.meta('eventTypeComponents') %}
+        {{ renderComponent(component) }}
+      {% endfor %}
+      {% for component in post.meta('eventConditionComponents') %}
+        {{ renderComponent(component) }}
+      {% endfor %}
+      {% for component in post.meta('eventCapacityComponents') %}
+        {{ renderComponent(component) }}
+      {% endfor %}
+      {% for component in post.meta('eventResultComponents') %}
+        {{ renderComponent(component) }}
+      {% endfor %}
+    </div>
+  </div>
+</div>
