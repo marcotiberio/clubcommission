@@ -8,8 +8,11 @@
 
 [is='flynt-navigation-burger'] {
   $navigation-height: 75px;
-
   height: $navigation-height;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 118px;
 
   @media (min-width: $breakpoint-desktop) {
     display: block;
@@ -22,12 +25,11 @@
   .container {
     align-items: center;
     background-color: $black;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+    border-bottom: 1px solid $white;
     display: flex;
     height: $navigation-height;
     justify-content: flex-end;
     left: 0;
-    padding: $container-padding-mobile;
     position: absolute;
     width: 100%;
     z-index: 99;

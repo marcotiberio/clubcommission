@@ -1,0 +1,14 @@
+<div class="flyntComponent" style="background-color: {{ backgroundColor|e }}" is="flynt-block-glossar">
+  <div class="container fullWidthContainer">
+    <ul class="items">
+      {% for term in terms %}
+      <li class="item">
+      {% if term.word or term.definition %}
+        <div class="item-word">{{ term.word|e }}</div>
+        <div class="item-definition">{{ term.definition|e('wp_kses_post') }}</div>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

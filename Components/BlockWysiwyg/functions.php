@@ -42,14 +42,14 @@ function getACFLayout()
                 'endpoint' => 0
             ],
             [
-                'label' => '',
-                'name' => 'options',
-                'type' => 'group',
-                'layout' => 'row',
-                'sub_fields' => [
-                    FieldVariables\getTheme()
+                'label' => __('Background Color', 'flynt'),
+                'name' => 'backgroundColor',
+                'type' => 'color_picker',
+                'required' => 0,
+                'wrapper' => [
+                    'width' => 100
                 ]
-            ]
+            ],
         ]
     ];
 }

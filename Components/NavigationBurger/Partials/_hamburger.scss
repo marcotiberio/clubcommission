@@ -1,62 +1,124 @@
-.hamburger {
-  cursor: pointer;
-  display: block;
-  height: 18px;
-  position: relative;
-  width: 30px;
+.hamburger-container {
+  align-content: center;
+  align-items: center;
+  border-left: 1px solid $white;
+  display: flex;
+  height: $navigation-height;
+  justify-content: center;
+  width: 118px;
+  
+  
 
-  &::before,
-  &::after {
-    content: '';
+  .hamburger {
+    align-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: $navigation-height;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    
+    &-barText {
+      align-content: center;
+      align-items: center;
+      color: $white;
+      display: flex;
+      height: $navigation-height;
+      justify-content: center;
+      line-height: 1;
+      margin-top: -12px;
+      transition: color 0.2s ease-out;
+
+      &:hover {
+        color: $orange;
+      }
+    }
+
+    &-barTextClose {
+      align-content: center;
+      align-items: center;
+      color: $white;
+      display: none;
+      height: $navigation-height;
+      justify-content: center;
+      line-height: 1;
+      margin-top: -12px;
+      transition: color 0.2s ease-out;
+
+      &:hover {
+        color: $orange;
+      }
+    }
+
+    // &::before,
+    // &::after {
+    //   content: '';
+    //   display: none;
+    // }
+
+    // &::before,
+    // &::after,
+    // &-barPrimary,
+    // &-barSecondary {
+    //   background-color: $white;
+    //   display: none;
+    //   height: 2px;
+    //   left: 0;
+    //   position: absolute;
+    //   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out,
+    //     background-color 0.2s ease-in-out;
+    //   width: 30px;
+    // }
+
+    // &::before {
+    //   top: 0;
+    // }
+
+    // &-barPrimary,
+    // &-barSecondary {
+    //   top: 8px;
+    // }
+
+    // &::after {
+    //   top: 16px;
+    // }
   }
 
-  &::before,
-  &::after,
-  &-barPrimary,
-  &-barSecondary {
-    background-color: $white;
-    display: block;
-    height: 2px;
-    left: 0;
-    position: absolute;
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out,
-      background-color 0.2s ease-in-out;
-    width: 30px;
-  }
-
-  &::before {
-    top: 0;
-  }
-
-  &-barPrimary,
-  &-barSecondary {
-    top: 8px;
-  }
-
-  &::after {
-    top: 16px;
-  }
 }
 
 &.flyntComponent-menuIsOpen .hamburger {
-  &::before,
-  &::after {
-    opacity: 0;
+  &-barText {
+    display: none;
   }
 
-  &::before {
-    transform: scale(0) translateY(8px);
+  &-barTextClose {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
 
-  &::after {
-    transform: scale(0) translateY(-8px);
-  }
+  // &::before,
+  // &::after {
+  //   opacity: 0;
+  // }
 
-  &-barPrimary {
-    transform: rotate(45deg);
-  }
+  // &::before {
+  //   transform: scale(0) translateY(8px);
+  // }
 
-  &-barSecondary {
-    transform: rotate(-45deg);
-  }
+  // &::after {
+  //   transform: scale(0) translateY(-8px);
+  // }
+
+  // &-barPrimary {
+  //   display: none;
+  //   transform: rotate(45deg);
+  // }
+
+  // &-barSecondary {
+  //   display: none;
+  //   transform: rotate(-45deg);
+  // }
 }

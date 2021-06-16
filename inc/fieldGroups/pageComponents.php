@@ -15,16 +15,12 @@ add_action('Flynt/afterRegisterComponents', function () {
                 'type' => 'flexible_content',
                 'button_label' => __('Add Component', 'flynt'),
                 'layouts' => [
-                    Components\BlockCollapse\getACFLayout(),
-                    Components\BlockImage\getACFLayout(),
-                    Components\BlockImageText\getACFLayout(),
+                    Components\BlockBlankSpace\getACFLayout(),
+                    Components\BlockDownloads\getACFLayout(),
+                    Components\BlockGlossar\getACFLayout(),
+                    Components\BlockInfo\getACFLayout(),
                     Components\BlockQuestion\getACFLayout(),
-                    Components\BlockVideoOembed\getACFLayout(),
                     Components\BlockWysiwyg\getACFLayout(),
-                    Components\GridImageText\getACFLayout(),
-                    Components\GridPostsLatest\getACFLayout(),
-                    Components\ListComponents\getACFLayout(),
-                    Components\SliderImages\getACFLayout(),
                 ]
             ]
         ],

@@ -1,0 +1,53 @@
+[is='flynt-block-glossar'] {
+  width: 100%;
+
+  .items {
+    @include reset-list;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .item {
+    align-items: center;
+    border-bottom: 1px solid $black;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    min-height: 420px;
+    padding: $container-padding-mobile;
+    width: 100%;
+    
+
+    @media (min-width: $breakpoint-desktop) {
+      flex-flow: column wrap;
+      width: 50%;
+    }
+
+    &-word {
+      font-family: 'MonumentGroteskMono', Helvetica, Arial, sans-serif;
+      letter-spacing: -1px;
+      margin-bottom: $container-padding-mobile*2;
+      text-align: left;
+      text-transform: uppercase;
+      width: 100%;
+
+      @media (min-width: $breakpoint-desktop) {
+        margin-bottom: 0;
+      }
+    }
+
+    &-definition {
+      p:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .item:nth-child(odd) {
+    border-right: 0;
+    
+    @media (min-width: $breakpoint-desktop) {
+      border-right: 1px solid $black;
+    }
+  }
+}

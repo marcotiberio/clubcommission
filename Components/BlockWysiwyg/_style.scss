@@ -1,6 +1,12 @@
 [is='flynt-block-wysiwyg'] {
+  padding-bottom: $component-spacing-desktop;
+  width: 100%;
+
+  @media (min-width: $breakpoint-desktop) {
+    width: 50%;
+  }
+
   .content {
-    @include reset-content-margins;
     text-align: inherit;
 
     &--textLeft {

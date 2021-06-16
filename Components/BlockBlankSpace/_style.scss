@@ -1,0 +1,12 @@
+[is='flynt-block-blank-space'] {
+  $navigation-height: 75px;
+  display: none;
+  height: calc(100vh - #{$navigation-height});
+  width: 100%;
+
+  @media (min-width: $breakpoint-desktop) {
+    display: block;
+    height: calc(100vh - #{$navigation-height});
+    width: 50%;
+  }
+}

@@ -4,13 +4,8 @@
 * Top level styles every element should inherit.
 */
 
-// @include font-face('Montserrat', 'montserrat-v14-latin-regular', '400', 'normal');
-// @include font-face('Montserrat', 'montserrat-v14-latin-italic', '400', 'italic');
-// @include font-face('Montserrat', 'montserrat-v14-latin-700', '700', 'normal');
-// @include font-face('Montserrat', 'montserrat-v14-latin-700italic', '700', 'italic');
-
 @include font-face('MonumentGrotesk', 'MonumentGrotesk', '400', 'regular');
-
+@include font-face('MonumentGroteskMono', 'MonumentGroteskMono', '400', 'regular');
 @include font-face('Tungsten', 'Tungsten', '400', 'regular');
 
 html {
@@ -35,8 +30,6 @@ html {
 }
 
 body {
-  background: $orange;
-  height: 100%;
   overflow-x: hidden;
 }
 
@@ -63,6 +56,22 @@ body {
 
 h1,
 .h1 {
+  font-family: 'Tungsten', Helvetica, Arial, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.175;
+  margin-bottom: 1.5rem;
+  padding-top: 2rem;
+  text-transform: uppercase;
+
+  @media (min-width: $breakpoint-mobile-horizontal) {
+    font-size: 3.125rem;
+    line-height: 0.8;
+  }
+}
+
+.h1Question {
   font-size: 2.25rem;
   font-weight: 400;
   letter-spacing: -1px;
@@ -280,9 +289,8 @@ button {
   color: $white;
   cursor: pointer;
   display: inline-block;
-  font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-family: 'MonumentGroteskMono', Helvetica, Arial, sans-serif;
+  font-weight: 400;
   line-height: inherit;
   padding: 1rem 1.5rem;
   text-align: center;
@@ -296,13 +304,6 @@ button {
     cursor: default;
     opacity: 0.65;
     pointer-events: none;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: $white-dark;
-    border-color: $white-dark;
-    color: $white;
   }
 
   &--ghost {
@@ -326,7 +327,7 @@ button {
   &--link {
     background-color: transparent;
     border: 0;
-    color: $color-accent;
+    color: $black;
     padding: 0;
     position: relative;
     text-transform: none;
@@ -337,40 +338,9 @@ button {
       background-color: transparent;
       color: $white-dark;
 
-      &::before {
-        background-color: $white-dark;
-      }
-
       &::after {
         background-position: right center;
       }
-    }
-
-    &::before {
-      background-color: $color-accent;
-      bottom: 0;
-      content: '';
-      height: 1px;
-      left: 0;
-      position: absolute;
-      transition: background-color 0.2s ease-out;
-      width: 100%;
-    }
-
-    &::after {
-      $color-accent-rgb: red($color-accent), green($color-accent), blue($color-accent);
-      $white-dark-rgb: red($white-dark), green($white-dark), blue($white-dark);
-
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.586 5L.293 8.293a1 1 0 1 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4A1 1 0 1 0 .293 1.707L3.586 5z' fill='rgb(#{$color-accent-rgb})'/%3E%3Cpath d='M13.586 5l-3.293 3.293a1 1 0 0 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4a1 1 0 0 0-1.414 1.414L13.586 5z' fill='rgb(#{$white-dark-rgb})'/%3E%3C/svg%3E");
-      background-position: left center;
-      background-repeat: no-repeat;
-      content: '';
-      display: inline-block;
-      height: 10px;
-      margin-left: 10px;
-      transition: background-position 0.2s ease-out;
-      vertical-align: baseline;
-      width: 6px;
     }
   }
 }
@@ -501,7 +471,7 @@ select {
     outline: 0;
   }
 
-  + label {
+  +label {
     display: inline-block;
     padding-left: 1.875rem;
     position: relative;
@@ -525,7 +495,7 @@ select {
   }
 
   &:checked {
-    + label::before {
+    +label::before {
       background-color: $color-accent;
       border-color: $color-accent;
       box-shadow: inset 0 0 0 2px #fff;
@@ -534,7 +504,7 @@ select {
 }
 
 [type='radio'] {
-  + label::before {
+  +label::before {
     border-radius: 50%;
   }
 }
@@ -545,13 +515,19 @@ select {
 * Global layout classes for a consistent appearance.
 */
 
-.mainHeader {
-  @media (min-width: $breakpoint-desktop) {
-    display: flex;
-    flex-flow: row wrap;
-  }
+/* Header */
 
-  .safe-rave {
+.mainHeader {
+  display: flex;
+  flex-flow: row wrap;
+  height: 75px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1000;
+
+  .safeRave {
     display: none;
 
     @media (min-width: $breakpoint-desktop) {
@@ -568,15 +544,81 @@ select {
       width: 50%;
     }
   }
+
+  .progressBar {
+    display: flex;
+    left: 100px;
+    position: fixed;
+    top: 20px;
+
+    span {
+      color: $black;
+    }
+  }
 }
 
+.home,
+.page-template-default {
+  .progressBar {
+    display: none;
+  }
+}
+
+.single-event_privacy {
+  .progressBar span:nth-child(1) {
+    display: block;
+  }
+
+  .progressBar span:nth-child(2),
+  .progressBar span:nth-child(3),
+  .progressBar span:nth-child(4) {
+    display: none;
+  }
+}
+
+.single-event_type {
+  .progressBar span:nth-child(2) {
+    display: block;
+  }
+
+  .progressBar span:nth-child(1),
+  .progressBar span:nth-child(3),
+  .progressBar span:nth-child(4) {
+    display: none;
+  }
+}
+
+.single-event_condition {
+  .progressBar span:nth-child(3) {
+    display: block;
+  }
+
+  .progressBar span:nth-child(1),
+  .progressBar span:nth-child(2),
+  .progressBar span:nth-child(4) {
+    display: none;
+  }
+}
+
+.single-event_capacity {
+  .progressBar span:nth-child(4) {
+    display: block;
+  }
+
+  .progressBar span:nth-child(1),
+  .progressBar span:nth-child(2),
+  .progressBar span:nth-child(3) {
+    display: none;
+  }
+}
+
+/* Header */
+
 .pageWrapper {
-  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   height: 100%;
   margin: 0 auto;
-  // max-width: $breakpoint-mobile-horizontal;
 
   .admin-bar & {
     padding-top: 46px;
@@ -590,10 +632,31 @@ select {
 .mainContent {
   display: flex;
   flex: 1 0 auto;
+  flex-flow: column wrap;
+  margin-top: 75px;
+
+  @media (min-width: $breakpoint-desktop) {
+    flex-flow: row wrap;
+  }
 
   .flyntComponent:nth-child(1) {
-    background-color: $white;
     border-right: 1px solid $black;
+  }
+
+  .post {
+    .post-custom-main {
+      width: 100vw;
+
+      &-content {
+        display: flex;
+        flex: 1 0 auto;
+        flex-flow: column wrap;
+
+        @media (min-width: $breakpoint-desktop) {
+          flex-flow: row wrap;
+        }
+      }
+    }
   }
 }
 
@@ -630,17 +693,24 @@ select {
   @include center;
 
   @media (min-width: $breakpoint-tablet) {
-    @include center($padding: $container-padding-tablet);
+    @include center($padding: $container-padding-mobile);
   }
 
   @media (min-width: $breakpoint-desktop) {
-    @include center($padding: $container-padding-desktop);
+    @include center($padding: $container-padding-mobile);
+  }
+
+  &-half {
+    @include center;
+    margin: 0;
+    max-width: $content-max-width;
   }
 }
 
 .fullWidthContainer {
-  @include center;
+  margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .centerContentMaxWidth {
@@ -650,10 +720,8 @@ select {
 
 .preContent {
   @include reset-content-margins;
-  margin-bottom: $container-padding-desktop;
-  margin-top: $container-padding-desktop;
-  max-width: $content-max-width;
-  text-align: center;
+  margin-bottom: $container-padding-mobile;
+  margin-top: $container-padding-mobile;
 }
 
 .postContent {
@@ -731,7 +799,7 @@ select {
       }
     }
 
-    > .componentSpacing {
+    >.componentSpacing {
       &:first-child {
         margin-top: 0;
       }
@@ -804,8 +872,6 @@ select {
       &::after {
         $color-accent-rgb: red($color-accent), green($color-accent), blue($color-accent);
         $white-rgb: red($white), green($white), blue($white);
-
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.586 5L.293 8.293a1 1 0 1 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4A1 1 0 1 0 .293 1.707L3.586 5z' fill='rgb(#{$color-accent-rgb})'/%3E%3Cpath d='M13.586 5l-3.293 3.293a1 1 0 0 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4a1 1 0 0 0-1.414 1.414L13.586 5z' fill='rgb(#{$white-rgb})'/%3E%3C/svg%3E");
       }
     }
   }
@@ -831,21 +897,8 @@ select {
   }
 
   .button {
-    background-color: $white-dark;
-    border-color: $white-dark;
-    color: $white;
-
-    &:hover,
-    &:focus {
-      background-color: $white;
-      border-color: $white;
-      color: $white-dark;
-    }
-
     &--ghost {
       background-color: transparent;
-      border-color: $white-dark;
-      color: $white-dark;
 
       &:hover,
       &:focus {
@@ -866,18 +919,11 @@ select {
       &:hover,
       &:focus {
         background-color: transparent;
-        color: $white-dark;
-
-        &::before {
-          background-color: $white-dark;
-        }
       }
 
       &::after {
         $white-dark-rgb: red($white-dark), green($white-dark), blue($white-dark);
         $white-rgb: red($white), green($white), blue($white);
-
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.586 5L.293 8.293a1 1 0 1 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4A1 1 0 1 0 .293 1.707L3.586 5z' fill='rgb(#{$white-rgb})'/%3E%3Cpath d='M13.586 5l-3.293 3.293a1 1 0 0 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4a1 1 0 0 0-1.414 1.414L13.586 5z' fill='rgb(#{$white-dark-rgb})'/%3E%3C/svg%3E");
       }
     }
   }
@@ -922,7 +968,6 @@ select {
 
     &:hover,
     &:focus {
-      background-color: $white-dark;
       border-color: $white-dark;
       color: $white;
     }
@@ -935,8 +980,6 @@ select {
       &:hover,
       &:focus {
         background-color: transparent;
-        border-color: $white-dark;
-        color: $white-dark;
       }
     }
 
@@ -947,11 +990,8 @@ select {
       &:hover,
       &:focus {
         background-color: transparent;
-        color: $white-dark;
 
-        &::before {
-          background-color: $white-dark;
-        }
+        
       }
 
       &::before {
@@ -961,8 +1001,6 @@ select {
       &::after {
         $color-accent-rgb: red($color-accent), green($color-accent), blue($color-accent);
         $white-dark-rgb: red($white-dark), green($white-dark), blue($white-dark);
-
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.586 5L.293 8.293a1 1 0 1 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4A1 1 0 1 0 .293 1.707L3.586 5z' fill='rgb(#{$color-accent-rgb})'/%3E%3Cpath d='M13.586 5l-3.293 3.293a1 1 0 0 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4a1 1 0 0 0-1.414 1.414L13.586 5z' fill='rgb(#{$white-dark-rgb})'/%3E%3C/svg%3E");
       }
     }
   }

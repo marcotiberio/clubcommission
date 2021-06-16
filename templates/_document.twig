@@ -16,9 +16,12 @@
         <header class="mainHeader">
           {% block header %}
             {# {{ renderComponent('NavigationMain') }} #}
-            <div class="safe-rave h1" style="">
-              <h1>SAFE RAVE</h1>
-            </div>
+            {# {{ renderComponent('BlockMarquee') }} #}
+            {# <div class="safeRave h1">
+              <div class="safeRave-inner">          
+                <span>SAFERAVE</span>
+              </div>
+            </div> #}
             {{ renderComponent('NavigationBurger') }}
           {% endblock %}
         </header>
@@ -32,9 +35,9 @@
           {% endif %}
         </main>
         <footer class="mainFooter">
-          {% block footer %}
+          {# {% block footer %}
             {{ renderComponent('NavigationFooter') }}
-          {% endblock %}
+          {% endblock %} #}
         </footer>
       </div>
     {% endblock %}

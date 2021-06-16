@@ -1,0 +1,9 @@
+<div class="flyntComponent" style="background-color: {{ backgroundColor|e }}" is="flynt-block-info">
+  <div class="container centerMaxWidthContainer">
+    <div class="info-header">{{ infoHeader|e }}</div>
+    <div class="content content--{{ textAlignment }}">
+      {{ contentHtml|e('wp_kses_post') }}
+    </div>
+    <button class="go-back">{{ labels.goBackLabel|e }}</button>
+  </div>
+</div>

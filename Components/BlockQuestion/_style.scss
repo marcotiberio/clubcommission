@@ -1,4 +1,5 @@
 [is='flynt-block-question'] {
+  $navigation-height: 75px;
   margin: 0;
   width: 100%;
 
@@ -6,15 +7,27 @@
     width: 50%;
   }
 
+  .progressBar {
+    left: 50%;
+    position: fixed;
+    top: 90px;
+
+    @media (min-width: $breakpoint-desktop) {
+      left: 25%;
+    }
+  }
+
   .container {
     align-content: space-between;
     display: flex;
     flex-flow: row wrap;
-    height: calc(100vh - 155px);
+    height: calc(100vh - #{$navigation-height});
     justify-content: space-between;
 
     .preContent {
       height: calc(50% - 155px);
+      text-align: center;
+      width: 80%;
     }
 
     .items {

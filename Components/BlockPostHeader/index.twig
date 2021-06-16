@@ -1,6 +1,6 @@
-<div class="flyntComponent" is="flynt-block-post-header">
+<div class="flyntComponent post-custom-main" is="flynt-block-post-header">
   <div class="container fullWidthContainer">
-    <div class="content">
+    <div class="post-custom-main-content">
       {# <h1>{{ post.title }}</h1> #}
       {% for component in post.meta('eventPrivacyComponents') %}
         {{ renderComponent(component) }}
