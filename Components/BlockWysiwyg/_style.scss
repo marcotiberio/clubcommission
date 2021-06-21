@@ -22,4 +22,16 @@
       padding-bottom: 0;
     }
   }
+
+  a {
+    display: inline-block;
+    transition: all 0.2s ease-out;
+
+    &::before {
+      content: '↗';
+      height: 10px;
+      text-decoration: none;
+      width: 10px;
+    }
+  }
 }

@@ -150,12 +150,12 @@ h6,
 
 a {
   color: $black;
-  text-decoration: underline;
+  text-decoration: none;
   transition: color 0.2s ease-out;
 
   &:hover,
   &:focus {
-    color: darken($black, 10%);
+    text-decoration: underline;
   }
 }
 
