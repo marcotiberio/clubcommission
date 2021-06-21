@@ -4,6 +4,10 @@
     <div class="content content--{{ textAlignment }}">
       {{ contentHtml|e('wp_kses_post') }}
     </div>
+    {% if fn('is_front_page') %}
+    <button class="go-back hideThis">{{ labels.goBackLabel|e }}</button>
+    {% else %}
     <button class="go-back">{{ labels.goBackLabel|e }}</button>
+    {% endif %}
   </div>
 </div>

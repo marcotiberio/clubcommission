@@ -7,16 +7,6 @@
     width: 50%;
   }
 
-  .progressBar {
-    left: 50%;
-    position: fixed;
-    top: 90px;
-
-    @media (min-width: $breakpoint-desktop) {
-      left: 25%;
-    }
-  }
-
   .container {
     align-content: space-between;
     display: flex;
@@ -26,6 +16,7 @@
 
     .preContent {
       height: calc(50% - 155px);
+      margin-top: 15%;
       text-align: center;
       width: 80%;
     }

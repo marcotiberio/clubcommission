@@ -65,6 +65,38 @@
       }
     }
   }
+
+  &-item:nth-last-child(1) {
+    border-top: 1px solid $white;
+
+    .menu-link {
+      align-items: center;
+      color: $white;
+      display: flex;
+      font-family: 'Tungsten', Helvetica, Arial, sans-serif;
+      font-size: 2.25rem;
+      font-weight: 400;
+      height: 65px;
+      justify-content: flex-start;
+      letter-spacing: 1px;
+      line-height: 1.175;
+      padding: 12px $container-padding-mobile;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s ease-out;
+
+      &:hover {
+        color: $color-accent;
+      }
+
+      @media (min-width: $breakpoint-tablet) {
+        font-size: 3.125rem;
+        line-height: 0.8;
+        padding-left: $container-padding-tablet;
+        padding-right: $container-padding-tablet;
+      }
+    }
+  }
 }
 
 &.flyntComponent-menuIsOpen .menu {

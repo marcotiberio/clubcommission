@@ -2,7 +2,7 @@
   align-items: center;
   background-color: $orange;
   border-bottom: 1px solid $white;
-  display: flex;
+  display: none;
   flex-shrink: 0;
   height: 75px;
   justify-content: center;
@@ -20,6 +20,42 @@
   @media (min-width: $breakpoint-desktop) {
     align-items: center;
     display: flex;
+    flex-shrink: 0;
+    height: 75px;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+
+    &-image {
+      height: 70%;
+      width: 50vw;
+    }
+  }
+}
+
+.logomobile {
+  align-items: center;
+  background-color: $orange;
+  border-bottom: 1px solid $white;
+  display: flex;
+  flex-shrink: 0;
+  height: 75px;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+
+  &-image {
+    height: 70%;
+    padding: 0 $container-padding-mobile/2;
+    width: calc(100vw - 118px);
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    align-items: center;
+    display: none;
     flex-shrink: 0;
     height: 75px;
     justify-content: center;

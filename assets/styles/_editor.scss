@@ -1,0 +1,55 @@
+@include font-face('MonumentGrotesk', 'MonumentGrotesk', '400', 'regular');
+@include font-face('MonumentGroteskMono', 'MonumentGroteskMono', '400', 'regular');
+@include font-face('Tungsten', 'Tungsten', '400', 'regular');
+
+.mce-content-body {
+  background-color: #fff;
+}
+
+#tinymce h1 {
+  font-family: 'Tungsten', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#tinymce .h1 {
+  font-family: 'Tungsten', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#tinymce .h1Outline {
+  color: $orange;
+  font-family: 'Tungsten', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  letter-spacing: 1px;
+  -webkit-text-stroke-color: $black;
+  -webkit-text-stroke-width: 0.5px;
+  text-transform: uppercase;
+}
+
+#tinymce .mce-text {
+  font-family: 'MonumentGrotesk', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+#tinymce p {
+  font-family: 'MonumentGrotesk', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+#tinymce .p {
+  font-family: 'MonumentGrotesk', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+#tinymce .body-text {
+  font-family: 'MonumentGrotesk', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
