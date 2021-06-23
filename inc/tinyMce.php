@@ -79,7 +79,7 @@ function getConfig()
         'textcolor_map' => [
             '000', 'Black',
             'fff', 'White',
-            'ff4d00', 'Orange'
+            'ffd5c3', 'Salmon'
         ],
         'blockformats' => [
             'Paragraph' => 'p',

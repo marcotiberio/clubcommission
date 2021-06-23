@@ -72,7 +72,7 @@ h1,
 }
 
 .h1Outline {
-  color: $orange;
+  color: $salmon;
   font-family: 'Tungsten', Helvetica, Arial, sans-serif;
   font-size: 2.25rem;
   font-weight: 400;
@@ -553,7 +553,7 @@ select {
 
     @media (min-width: $breakpoint-desktop) {
       align-items: center;
-      background-color: $orange;
+      background-color: $salmon;
       border-bottom: 1px solid $black;
       border-right: 1px solid $black;
       display: flex;

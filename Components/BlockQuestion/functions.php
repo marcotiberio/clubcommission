@@ -31,7 +31,7 @@ function getACFLayout()
                 'type' => 'repeater',
                 'min' => 1,
                 'layout' => 'row',
-                'button_label' => __('Add Item', 'flynt'),
+                'button_label' => __('Add Reply', 'flynt'),
                 'sub_fields' => [
                     [
                         'label' => __('Reply', 'flynt'),
