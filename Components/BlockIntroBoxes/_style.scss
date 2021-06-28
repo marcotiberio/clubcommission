@@ -1,56 +1,58 @@
 [is='flynt-block-intro-boxes'] {
+  height: calc(100vh - 75px);
   width: 100%;
 
-  @media (min-width: $breakpoint-desktop) {
-    width: 100%;
-  }
+  .container {
+    height: 100%;
 
-  .items {
-    @include reset-list;
-    display: flex;
-    flex-flow: row wrap;
-  }
-
-  .item {
-    align-items: flex-start;
-    border-bottom: 1px solid $black;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    min-height: 300px;
-    padding: $container-padding-mobile;
-    width: 100%;
-    
-
-    @media (min-width: $breakpoint-desktop) {
-      flex-flow: column wrap;
-      width: 50%;
+    .items {
+      @include reset-list;
+      display: flex;
+      flex-flow: row wrap;
+      height: 100%;
     }
-
-    &-icon {
+  
+    .item {
+      align-items: flex-start;
+      border-bottom: 1px solid $black;
+      display: flex;
+      flex-flow: row wrap;
       height: auto;
-      margin-bottom: $container-padding-mobile*2;
-      width: 45px;
-
-      @media (min-width: $breakpoint-desktop) {
-        margin-bottom: 0;
-      }
-    }
-
-    &-title {
-      left: $container-padding-mobile;
-      position: absolute;
-      top: $container-padding-mobile;
-    }
-
-    &-description {
-      p {
-        margin-block-end: 0;
-        margin-bottom: 0;
-      }
+      justify-content: space-between;
+      padding: $container-padding-mobile;
+      width: 100%;
       
-      p:nth-last-child(1) {
-        margin-bottom: 0;
+  
+      @media (min-width: $breakpoint-desktop) {
+        flex-flow: column wrap;
+        width: 50%;
+      }
+  
+      &-icon {
+        height: auto;
+        margin-bottom: $container-padding-mobile*2;
+        width: 45px;
+  
+        @media (min-width: $breakpoint-desktop) {
+          margin-bottom: 0;
+        }
+      }
+  
+      &-title {
+        left: $container-padding-mobile;
+        position: absolute;
+        top: $container-padding-mobile;
+      }
+  
+      &-description {
+        p {
+          margin-block-end: 0;
+          margin-bottom: 0;
+        }
+        
+        p:nth-last-child(1) {
+          margin-bottom: 0;
+        }
       }
     }
   }
