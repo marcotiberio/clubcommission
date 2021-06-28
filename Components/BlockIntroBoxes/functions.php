@@ -1,14 +1,14 @@
 <?php
 
-namespace Flynt\Components\BlockBoxes;
+namespace Flynt\Components\BlockIntroBoxes;
 
 use Flynt\FieldVariables;
 
 function getACFLayout()
 {
     return [
-        'name' => 'BlockBoxes',
-        'label' => 'Block: Boxes',
+        'name' => 'BlockIntroBoxes',
+        'label' => 'Block: Intro Boxes',
         'sub_fields' => [
             [
                 'label' => __('Glossar', 'flynt'),
@@ -23,7 +23,7 @@ function getACFLayout()
                 'type' => 'repeater',
                 'min' => 1,
                 'layout' => 'block',
-                'button_label' => __('Add Guideline', 'flynt'),
+                'button_label' => __('Add Box', 'flynt'),
                 'sub_fields' => [
                     [
                         'label' => __('Icon', 'flynt'),
@@ -34,7 +34,16 @@ function getACFLayout()
                         'required' => 0,
                         'mime_types' => 'gif,jpg,jpeg,png,svg',
                         'wrapper' => [
-                            'width' => 20
+                            'width' => 50
+                        ]
+                    ],
+                    [
+                        'label' => __('Title', 'flynt'),
+                        'name' => 'title',
+                        'type' => 'text',
+                        'required' => 0,
+                        'wrapper' => [
+                            'width' => 50
                         ]
                     ],
                     [
@@ -46,7 +55,7 @@ function getACFLayout()
                         'tabs' => 'visual',
                         'required' => 0,
                         'wrapper' => [
-                            'width' => 80
+                            'width' => 100
                         ]
                     ],
                 ]

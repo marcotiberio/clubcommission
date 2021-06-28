@@ -20,6 +20,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                     Components\BlockDownloads\getACFLayout(),
                     Components\BlockGlossar\getACFLayout(),
                     Components\BlockInfo\getACFLayout(),
+                    Components\BlockIntroBoxes\getACFLayout(),
                     Components\BlockQuestion\getACFLayout(),
                     Components\BlockWysiwyg\getACFLayout(),
                 ]
